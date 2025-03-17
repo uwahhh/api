@@ -3,12 +3,7 @@ import pandas as pd
 import time
 
 # Replace with your actual credentials
-reddit = praw.Reddit(
-    client_id="Hx7mblBGjCkE-cfyX0BALQ",
-    client_secret="s8vMsRa6Z9PWQVqW-pilshY2I8Ztzw",
-    user_agent="webscrape",
-    username="xawz",
-    password="Ninokano<3",
+reddit = praw.Reddit("",
 )
 
 # Fetch posts from whichever reddit
@@ -33,7 +28,7 @@ while True:
         last_post = post.name  # Store the last post ID
         count += 1
 
-    print(f"✅ Scraped {count} new posts...")
+    print(f"Scraped {count} new posts...")
 
     # Stop when there are no more posts
     if count == 0:
@@ -48,4 +43,4 @@ df = pd.DataFrame(posts, columns=["id", "title", "text", "url", "created_utc"])
 # Save as CSV
 df.to_csv(subreddit.display_name+".csv", index=False, encoding="utf-8")
 
-print(f"✅ Scraped {len(df)} total posts! Data saved to "+subreddit.display_name+".csv")
+print(f"Scraped {len(df)} total posts! Data saved to "+subreddit.display_name+".csv")
